@@ -13,7 +13,7 @@ public record Data(Feed feed) {
                         Float.parseFloat(entry.price().label().substring(1)),
                         entry.releaseDate().label(),
                         entry.link().attributes().href(),
-                        entry.images.getFirst().label()
+                        entry.images.get(0).label()
                 ))
                 .toList();
     }
