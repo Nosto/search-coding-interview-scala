@@ -1,4 +1,4 @@
-name: Java CI with Gradle
+name: Scala CI with SBT
 
 on: [push, pull_request]
 
@@ -16,6 +16,9 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
           cache: 'sbt'
+
+      - name: Check formatting
+        run: sbt scalafmtCheckAll
 
       - name: Build with sbt
         run: sbt test
