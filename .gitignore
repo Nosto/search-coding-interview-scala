@@ -1,6 +1,7 @@
 # SBT files
 /target/
 /project/target/
+/.bsp/
 
 # IntelliJ files
 /.idea/
