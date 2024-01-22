@@ -1,7 +1,4 @@
-# Gradle files
-/.gradle/
-/app/build/
-/build/
+# SBT files
 
 # IntelliJ files
 /.idea/

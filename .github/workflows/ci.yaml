@@ -15,11 +15,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+          cache: 'sbt'
 
-      - name: Build with Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: build
+      - name: Build with sbt
+        run: sbt test
 
       - name: Publish Unit Test Results
         if: always()
