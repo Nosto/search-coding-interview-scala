@@ -1,4 +1,6 @@
 # SBT files
+/target/
+/project/target/
 
 # IntelliJ files
 /.idea/
