@@ -3,6 +3,7 @@ package albums.challenge.models
 import com.fasterxml.jackson.annotation.JsonProperty
 
 case class Data(feed: Data.Feed) {
+  def this() = this(Data.Feed(List()))
   def convert(): List[Entry] = feed.entry
     .map { entry =>
       Entry(
@@ -16,7 +17,9 @@ case class Data(feed: Data.Feed) {
 }
 
 object Data {
-  case class Feed(entry: List[Feed.Entry])
+  case class Feed(entry: List[Feed.Entry]) {
+    def this() = this(List())
+  }
 
   object Feed {
     case class Entry(
@@ -24,7 +27,7 @@ object Data {
         link: Link,
         @JsonProperty("im:image") images: List[Label],
         @JsonProperty("im:price") price: Label,
-        @JsonProperty("im:releaseDate") releaseDate: Label
+        @JsonProperty("im:releaseDate") releaseDate: Label,
     )
 
     case class Label(label: String)

@@ -28,8 +28,8 @@ class DataService {
         jsonConverter.setSupportedMediaTypes(
           List(
             new MediaType("application", "json", StandardCharsets.UTF_8),
-            new MediaType("text", "javascript", StandardCharsets.UTF_8)
-          ).asJava
+            new MediaType("text", "javascript", StandardCharsets.UTF_8),
+          ).asJava,
         )
       case _ => // Do nothing for other converters
     }

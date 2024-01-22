@@ -5,12 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.cache.annotation.EnableCaching
-import org.springframework.web.bind.annotation.{
-  GetMapping,
-  RequestParam,
-  RestController,
-}
+import org.springframework.web.bind.annotation.{GetMapping, RequestParam, RestController}
 import org.springframework.web.servlet.ModelAndView
+
+import scala.jdk.CollectionConverters.CollectionHasAsScala
 
 @SpringBootApplication
 @RestController
@@ -30,20 +28,18 @@ class Application @Autowired() (
   @GetMapping(Array("/api/search"))
   def search(
       @RequestParam query: String,
-      @RequestParam(defaultValue = "") year: List[String],
-      @RequestParam(defaultValue = "") price: List[String],
+      @RequestParam(defaultValue = "") year: java.util.List[String],
+      @RequestParam(defaultValue = "") price: java.util.List[String],
   ): Results = {
     searchService.search(
       dataService.fetch(),
       query,
-      year,
-      price,
+      year.asScala.toList,
+      price.asScala.toList,
     )
   }
 }
 
-object Application {
-  def main(args: Array[String]): Unit = {
-    SpringApplication.run(classOf[Application], args: _*)
-  }
+object Application extends App {
+  SpringApplication.run(classOf[Application], args: _*)
 }

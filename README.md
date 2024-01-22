@@ -2,21 +2,19 @@
 
 Your challenge is to finish this web app which lists top 100 music albums from iTunes with search and filter functionality.
 
-* Create a new private Github repository.
-* Download `albums-challenge-java.zip` file from this gist and import to that repository.
+* Fork this GitHub repository.
 * Implement the changes listed below.
-* Invite members [@NostoLukas](https://github.com/NostoLukas) and [@ringaudaskalinauskas](https://github.com/ringaudaskalinauskas) with `Read` access for the review.
-
+* Invite [@georgms](https://github.com/georgms)with `Read` access for the review.
 
 ## Setup
 
 ### Requirements
 
-* `Java 17` or newer
+* `Java 21` or newer
 
 ### Running
 
-* `./gradlew bootRun`
+* `sbt run`
 * Open http://localhost:8080 in your browser. 
 
 > You can also run the app from IntelliJ by running `Application` class.
@@ -28,7 +26,8 @@ Your challenge is to finish this web app which lists top 100 music albums from i
 
 **NOTE**
 
-There is `tests` directory with tests that cover most of required functionality. You can run tests by executing `./gradlew test` or executing them in IntelliJ.
+There is the [test](src/test/scala) directory with tests that cover most of required functionality. You can run tests by
+executing `sbt test` or executing them in IntelliJ.
 
 ---
 

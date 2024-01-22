@@ -1,7 +1,7 @@
-package albums.challenge.models;
+package albums.challenge.models
 
 case class Results(
     items: List[Entry],
     facets: Map[String, List[Facet]],
-    query: String
+    query: String,
 )

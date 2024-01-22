@@ -16,3 +16,6 @@ lazy val root = (project in file("."))
       "org.scalameta" %% "munit" % "1.0.0-M10" % Test,
     ),
   )
+
+Compile / mainClass  := Some("albums.challenge.Application")
+
