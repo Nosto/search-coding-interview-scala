@@ -4,6 +4,7 @@ Your challenge is to finish this web app which lists top 100 music albums from i
 
 * Fork this GitHub repository.
 * Implement the changes listed below.
+* Ensure that the GitHub CI build succeeds.
 * Invite [@georgms](https://github.com/georgms) with `Read` access for the review.
 
 ## Setup
@@ -15,10 +16,13 @@ Your challenge is to finish this web app which lists top 100 music albums from i
 ### Running
 
 * `sbt run`
-* Open http://localhost:8080 in your browser. 
+* Open http://localhost:8080 in your browser.
 
-> You can also run the app from IntelliJ by running `Application` class.
+You can also run the app from IntelliJ by running `Application` class.
 
+### Formatting
+
+* Format the code using `sbt scalafmtAll`. This makes it easier for us to perform a code review.
 
 ## Your Tasks
 
