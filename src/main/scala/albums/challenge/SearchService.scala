@@ -9,11 +9,11 @@ class SearchService {
     search(entries, query, List.empty, List.empty)
 
   def search(
-      entries: List[Entry],
-      query: String,
-      year: List[String],
-      price: List[String],
-  ): Results = Results(
+              entries: List[Entry],
+              query: String,
+              year: List[String],
+              price: List[String],
+            ): Results = Results(
     if (query.isBlank) entries else filterByQuery(entries, query),
     Map(
       "year" -> List(Facet("2002", 25), Facet("2008", 2)),
@@ -26,6 +26,6 @@ class SearchService {
 
   private def filterByQuery(entries: List[Entry], query: String): List[Entry] = {
     val words = tokenizeToWords(query)
-    entries.filter(entry => tokenizeToWords(entry.title).forall(words.contains))
+    entries.filter(entry => tokenizeToWords(entry.title).exists(words.contains))
   }
 }
