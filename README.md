@@ -26,14 +26,10 @@ You can also run the app from IntelliJ by running `Application` class.
 
 ## Your Tasks
 
----
-
 **NOTE**
 
 There is the [test](src/test/scala) directory with tests that cover most of required functionality. You can run tests by
 executing `sbt test` or executing them in IntelliJ.
-
----
 
 ### 1. Implement price and year filtering options.
 
