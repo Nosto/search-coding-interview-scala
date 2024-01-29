@@ -4,7 +4,7 @@ Your challenge is to finish this web app which lists top 100 music albums from i
 
 * Fork this GitHub repository.
 * Implement the changes listed below.
-* Invite [@georgms](https://github.com/georgms)with `Read` access for the review.
+* Invite [@georgms](https://github.com/georgms) with `Read` access for the review.
 
 ## Setup
 
