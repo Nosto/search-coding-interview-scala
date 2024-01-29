@@ -36,7 +36,7 @@ class DataService {
 
     Option(restTemplate.getForObject(uri, classOf[Data])) match {
       case Some(data) => data.convert()
-      case None => throw new IllegalStateException("Failed to fetch data")
+      case None       => throw new IllegalStateException("Failed to fetch data")
     }
   }
 }

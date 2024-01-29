@@ -109,8 +109,8 @@ class SearchServiceTest extends munit.FunSuite {
     )
     assertEquals(
       result.facets.get("price"),
-      //I wasn't really sure about this test, as logically from what I understand if we filter out entries as user hasn't provided a facet
-      //that is for the price range then we shouldn't be returning it? So i have changed this test a bit
+      // I wasn't really sure about this test, as logically from what I understand if we filter out entries as user hasn't provided a facet
+      // that is for the price range then we shouldn't be returning it? So i have changed this test a bit
       Some(List(Facet("15 - 20", 1))),
     )
   }

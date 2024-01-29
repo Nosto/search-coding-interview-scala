@@ -9,11 +9,11 @@ class SearchService {
     search(entries, query, List.empty, List.empty)
 
   def search(
-              entries: List[Entry],
-              query: String,
-              year: List[String],
-              price: List[String],
-            ): Results = {
+      entries: List[Entry],
+      query: String,
+      year: List[String],
+      price: List[String],
+  ): Results = {
     var filteredEntries = if (query.isBlank) entries else filterByQuery(entries, query)
     filteredEntries = if (year.isEmpty) filteredEntries else filterByYears(filteredEntries, year)
     filteredEntries = if (price.isEmpty) filteredEntries else filterByPrice(filteredEntries, price)
@@ -35,7 +35,11 @@ class SearchService {
     var listToUse = facetList
     listToUse.find(y => y.value == matchingValue) match {
       case Some(foundObject) =>
-        val updatedList = listToUse.map(obj => if (obj == foundObject) foundObject.copy(value = foundObject.value, count = foundObject.count + 1) else obj)
+        val updatedList = listToUse.map(obj =>
+          if (obj == foundObject)
+            foundObject.copy(value = foundObject.value, count = foundObject.count + 1)
+          else obj,
+        )
         listToUse = updatedList
       case None =>
         listToUse = listToUse :+ Facet(matchingValue, 1)
@@ -43,7 +47,11 @@ class SearchService {
     listToUse
   }
 
-  private def createFacetsForEntries(entries: List[Entry], year: List[String], price: List[String]): Map[String, List[Facet]] = {
+  private def createFacetsForEntries(
+      entries: List[Entry],
+      year: List[String],
+      price: List[String],
+  ): Map[String, List[Facet]] = {
     var yearList = List.empty[Facet]
     var priceList = List.empty[Facet]
     if (year.nonEmpty) {
@@ -64,7 +72,7 @@ class SearchService {
     })
     Map(
       "year" -> yearList.sortBy(_.value).reverse,
-      "price" -> priceList
+      "price" -> priceList,
     )
   }
 
@@ -80,13 +88,15 @@ class SearchService {
   }
 
   private def filterByPrice(entries: List[Entry], price: List[String]): List[Entry] = {
-    entries.filter(entry => price.exists(p => {
-      val splitArray = p.split(" - ")
-      if (splitArray.length == 2) {
-        entry.price >= splitArray(0).toFloat && entry.price <= splitArray(1).toFloat
-      } else {
-        false
-      }
-    }))
+    entries.filter(entry =>
+      price.exists(p => {
+        val splitArray = p.split(" - ")
+        if (splitArray.length == 2) {
+          entry.price >= splitArray(0).toFloat && entry.price <= splitArray(1).toFloat
+        } else {
+          false
+        }
+      }),
+    )
   }
 }
