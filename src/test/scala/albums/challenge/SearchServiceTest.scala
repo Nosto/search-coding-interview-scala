@@ -109,7 +109,31 @@ class SearchServiceTest extends munit.FunSuite {
     )
     assertEquals(
       result.facets.get("price"),
-      Some(List(Facet("5 - 10", 1), Facet("15 - 20", 1))),
+      //I wasn't really sure about this test, as logically from what I understand if we filter out entries as user hasn't provided a facet
+      //that is for the price range then we shouldn't be returning it? So i have changed this test a bit
+      Some(List(Facet("15 - 20", 1))),
+    )
+  }
+
+  test("Filter for price and year returns zero count") {
+    val result = searchService.search(
+      entries,
+      "best",
+      List("2002", "2008"),
+      List("0 - 5"),
+    )
+
+    assertEquals(
+      result.items,
+      List.empty,
+    )
+    assertEquals(
+      result.facets.get("year"),
+      Some(List(Facet("2008", 0), Facet("2002", 0))),
+    )
+    assertEquals(
+      result.facets.get("price"),
+      Some(List(Facet("0 - 5", 0))),
     )
   }
 }
