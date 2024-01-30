@@ -18,7 +18,21 @@ class SearchServiceTest extends munit.FunSuite {
     "",
     "",
   )
-  val entries = List(entry1, entry2)
+  val entry3 = Entry(
+    "The Best of Earth Wind & Fire Vol. 1",
+    4.99f,
+    "1978-11-23T00:00:00-07:00",
+    "",
+    "",
+  )
+  val entry4 = Entry(
+    "The Least Worst of Type O Negative",
+    15.99f,
+    "1994-11-13T00:00:00-07:00",
+    "",
+    "",
+  )
+  val entries = List(entry1, entry2, entry3, entry4)
 
   test("Empty search") {
     assertEquals(

@@ -24,12 +24,14 @@ You can also run the app from IntelliJ by running `Application` class.
 
 * Format the code using `sbt scalafmtAll`. This makes it easier for us to perform a code review.
 
-## Your Tasks
-
-**NOTE**
+## Your tasks
 
 There is the [test](src/test/scala) directory with tests that cover most of required functionality. You can run tests by
 executing `sbt test` or executing them in IntelliJ.
+
+Just like in real life, the requirements as codified in the tests may be ambiguous or incomplete. Use your best
+judgement to fill in the gaps and make the app work as you understand the requirements. You may add or alter tests as
+you see fit. We will discuss your interpretation of the requirements during the review.
 
 ### 1. Implement price and year filtering options.
 
