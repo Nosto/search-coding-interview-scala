@@ -8,7 +8,7 @@ class SearchService {
   def search(
       entries: List[Entry],
       query: String,
-    year: List[String] = List.empty,
-    price: List[String] = List.empty,
+      year: List[String] = List.empty,
+      price: List[String] = List.empty,
   ): Results = ???
 }
